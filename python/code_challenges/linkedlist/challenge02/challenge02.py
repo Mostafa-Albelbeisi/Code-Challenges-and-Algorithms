@@ -1,4 +1,6 @@
 # Write here the code challenge solution
+
+# Write here the code challenge solution
 class Node:
     """This class creates the node """
     def __init__(self,value):
@@ -39,12 +41,24 @@ class linkedlist:
             current = current.next
         return lst
 
-def deleteNode(node):
-    """this is responseble to delete a node"""
+    def middleNode(self):
+        '''this function its find a middle node.'''
+        pointer = self.head
+        midNode = self.head
+        while ( pointer ) :
+            if pointer.next != None :
+                pointer = pointer.next.next
+                midNode = midNode.next
+            else : break
+        return midNode.value
 
-    node.value=node.next.value
-    node.next=node.next.next
-
+def findMidNode(lists):
+    '''A function to take a list as input and return the middle node'''
+    ll = linkedlist()
+    for i in lists:
+        ll.append(Node(i))
+    ll.printAll()
+    return (ll.middleNode())
 
 linkedList1 = linkedlist()
 node1 = Node("1")
@@ -57,5 +71,6 @@ node4 = Node("4")
 linkedList1.append(node4)
 node5 = Node("5")
 linkedList1.append(node5)
-deleteNode(node3)
-linkedList1.printAll()        
+linkedList1.middleNode()
+linkedList1.printAll()      
+print("Middle node -->" , linkedList1.middleNode())
