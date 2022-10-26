@@ -1,6 +1,5 @@
 # Write here the code challenge solution
 
-# Write here the code challenge solution
 class Node:
     """This class creates the node """
     def __init__(self,value):
