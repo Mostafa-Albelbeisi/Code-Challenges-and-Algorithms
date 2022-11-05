@@ -43,6 +43,7 @@ class Stack:
         return self.size
 
 def validParentheses(s):
+    '''Here this function check if it is a valid parentheses or not'''
     Parentheses={'(':')', '{':'}', '[':']'}
     stack=Stack()
     for i in s:
