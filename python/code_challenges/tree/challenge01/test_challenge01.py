@@ -2,52 +2,20 @@
 import pytest
 from challenge01 import *
 
-
-@pytest.fixture
-def prepared_tree():
+def test_build_tree():
     tree = BinaryTree()
-    tree.root = Node(3)
-    tree.root.left = Node(9)
-    tree.root.right = Node(20)
-    tree.root.right.left = Node(15)
-    tree.root.right.right = Node(7)
-    return tree
+    assert tree.buildTree([3,9,20,15,7],[9,3,15,20,7]).value == 3
+    assert tree.buildTree([3,9,20,15,7],[9,3,15,20,7]).left.value == 9
+    assert tree.buildTree([3,9,20,15,7],[9,3,15,20,7]).right.value == 20
+    assert tree.buildTree([3,9,20,15,7],[9,3,15,20,7]).right.left.value == 15
+    assert tree.buildTree([3,9,20,15,7],[9,3,15,20,7]).right.right.value == 7
 
-
-#////////////////////////////////////preorder/////////////////////////////////////////////
-
-
-def test_pre_order(prepared_tree):
-    assert prepared_tree.preorder() == [3, 9, 20, 15, 7]
-
-
-def test_pre_order_empty_tree():
+def test_build_tree2():
     tree = BinaryTree()
-    assert tree.preorder() == []
+    assert tree.buildTree([-1],[-1]).value == -1
 
-#////////////////////////////////////inorder/////////////////////////////////////////////
-
-def test_in_order(prepared_tree):
-    assert prepared_tree.inorder() == [9, 3, 15, 20, 7]
-
-def test_in_order_empty_tree():
+def test_build_tree3():
     tree = BinaryTree()
-    assert tree.inorder() == []
-
-
-
-#////////////////////////////////////Tree is empty/////////////////////////////////////////////
-def test_tree_empty():
-    tree = BinaryTree()
-    assert tree.preorder() ==[]
-    assert tree.inorder() ==[]
-
-
-#///////////////////////////////////////////////traversal//////////////////////////////////
-    breadth=BinaryTree()
-    breadth.root = Node(3)
-    breadth.root.left = Node(9)
-    breadth.root.right = Node(20)
-    breadth.root.left.left = Node(15)
-    breadth.root.right.left = Node(7)
-    assert breadth.traversal()==[3, 9, 20, 15, 7]
+    assert tree.buildTree([1,2,3],[2,1,3]).value == 1
+    assert tree.buildTree([1,2,3],[2,1,3]).left.value == 2
+    assert tree.buildTree([1,2,3],[2,1,3]).right.value == 3
